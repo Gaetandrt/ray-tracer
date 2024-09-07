@@ -13,6 +13,11 @@ Vec3::Vec3(float x, float y, float z)
 
 Vec3::~Vec3() {}
 
+Vec3 Vec3::operator-() const
+{
+    return Vec3(-_x, -_y, -_z);
+}
+
 Vec3 Vec3::operator+(const Vec3 &other) const
 {
     return Vec3(_x + other._x, _y + other._y, _z + other._z);
@@ -41,11 +46,6 @@ Vec3 Vec3::operator+(float scalar) const
 Vec3 Vec3::operator-(float scalar) const
 {
     return Vec3(_x - scalar, _y - scalar, _z - scalar);
-}
-
-Vec3 Vec3::operator*(float scalar) const
-{
-    return Vec3(_x * scalar, _y * scalar, _z * scalar);
 }
 
 Vec3 Vec3::operator/(float scalar) const
