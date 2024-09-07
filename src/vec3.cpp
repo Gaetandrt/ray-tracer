@@ -117,6 +117,17 @@ Vec3 Vec3::operator/=(float scalar)
     return *this;
 }
 
+Vec3 Vec3::operator*(float scalar) const
+{
+    return Vec3(_x * scalar, _y * scalar, _z * scalar);
+}
+
+std::ostream &operator<<(std::ostream &os, const Vec3 &vec)
+{
+    os << "Vec3(" << vec._x << ", " << vec._y << ", " << vec._z << ")";
+    return os;
+}
+
 void Vec3::normalize()
 {
     float length = std::sqrt(this->_x * this->_x + this->_y * this->_y + this->_z * this->_z);

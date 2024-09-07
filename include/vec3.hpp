@@ -1,3 +1,5 @@
+#include <iostream>
+
 #pragma once
 
 class Vec3 {
@@ -14,20 +16,22 @@ class Vec3 {
         Vec3 operator*(const Vec3 &other) const;
         Vec3 operator/(const Vec3 &other) const;
 
-        Vec3 operator+(float scalar) const;
-        Vec3 operator-(float scalar) const;
-        Vec3 operator*(float scalar) const;
-        Vec3 operator/(float scalar) const;
-
         Vec3 operator+=(const Vec3 &other);
         Vec3 operator-=(const Vec3 &other);
         Vec3 operator*=(const Vec3 &other);
         Vec3 operator/=(const Vec3 &other);
 
+        Vec3 operator+(float scalar) const;
+        Vec3 operator-(float scalar) const;
+        Vec3 operator*(float scalar) const;
+        Vec3 operator/(float scalar) const;
+
         Vec3 operator+=(float scalar);
         Vec3 operator-=(float scalar);
         Vec3 operator*=(float scalar);
         Vec3 operator/=(float scalar);
+
+        friend std::ostream &operator<<(std::ostream &os, const Vec3 &vec);
 
         void normalize();
         float dot(const Vec3 &other) const;
@@ -38,3 +42,6 @@ class Vec3 {
         float getY() const;
         float getZ() const;
 };
+
+using Point3 = Vec3;
+using Color = Vec3;
